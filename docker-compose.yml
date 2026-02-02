@@ -1,0 +1,16 @@
+services:
+  whatsapp:
+    image: devlikeapro/waha:latest
+    container_name: whatsapp-polls
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - whatsapp-data:/app/.sessions
+    environment:
+      - WHATSAPP_DEFAULT_ENGINE=WEBJS
+      - WAHA_PRINT_QR=false
+      - WHATSAPP_API_KEY=myapikey123
+
+volumes:
+  whatsapp-data:
