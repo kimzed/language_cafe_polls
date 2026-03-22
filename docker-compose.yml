@@ -1,6 +1,6 @@
 services:
   whatsapp:
-    image: devlikeapro/waha:latest
+    image: devlikeapro/waha:arm
     container_name: whatsapp-polls
     restart: always
     ports:
@@ -11,6 +11,8 @@ services:
       - WHATSAPP_DEFAULT_ENGINE=WEBJS
       - WAHA_PRINT_QR=false
       - WHATSAPP_API_KEY=myapikey123
+      - WAHA_DASHBOARD_USERNAME=admin
+      - WAHA_DASHBOARD_PASSWORD=admin
 
 volumes:
   whatsapp-data:
