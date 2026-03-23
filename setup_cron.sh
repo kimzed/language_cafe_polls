@@ -24,8 +24,8 @@ read -p "Continue? [y/N] " -n 1 -r
 echo ""
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    # Add cron job (avoiding duplicates)
-    (crontab -l 2>/dev/null | grep -v "send_polls.sh"; echo "$CRON_CMD") | crontab -
+    # Add cron job (avoiding duplicates), with SHELL=/bin/bash so 'source' works
+    (echo "SHELL=/bin/bash"; crontab -l 2>/dev/null | grep -v "send_polls.sh" | grep -v "^SHELL="; echo "$CRON_CMD") | crontab -
     echo "Cron job installed! Polls will be sent every Monday at 9:00 AM."
     echo ""
     echo "Current crontab:"
