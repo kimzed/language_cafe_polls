@@ -15,7 +15,7 @@ fi
 
 # Source .env and run script (log to project directory)
 LOG_FILE="$SCRIPT_DIR/polls.log"
-CRON_CMD="0 9 * * 1 cd $SCRIPT_DIR && source .env && ./send_polls.sh >> $LOG_FILE 2>&1"
+CRON_CMD="0 11 * * 1 cd $SCRIPT_DIR && set -a && source .env && set +a && ./send_polls.sh >> $LOG_FILE 2>&1"
 
 echo "This will add the following cron job:"
 echo "$CRON_CMD"

@@ -33,6 +33,8 @@ curl -s -X POST "$API_URL/api/sendPoll" \
     }"
 echo ""
 
+sleep 5
+
 echo "Sending poll 2: I want to learn..."
 curl -s -X POST "$API_URL/api/sendPoll" \
     -H "Content-Type: application/json" \
